@@ -29,10 +29,6 @@ export class FormComponent implements OnInit {
     return this.form.get('password');
   }
 
-  check(): void {
-    console.log(this.form.get('password')?.hasError('minlength'));
-  }
-
   ngOnInit(): void {
   }
 

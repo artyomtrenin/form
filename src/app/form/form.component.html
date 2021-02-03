@@ -4,8 +4,8 @@
       <div>
         <mat-form-field>
           <mat-label>Username</mat-label>
-          <input matInput formControlName="login">
-          <mat-error *ngIf="_login?.hasError('required')">
+          <input id="log" matInput formControlName="login">
+          <mat-error id="logReq" *ngIf="_login?.hasError('required') && _login?.touched">
             Это <strong>обязательное</strong> поле
           </mat-error>
         </mat-form-field>
@@ -13,17 +13,17 @@
       <div>
         <mat-form-field>
           <mat-label>Password</mat-label>
-          <input type="password" matInput formControlName="password">
-          <mat-error *ngIf="_password?.hasError('required')">
+          <input id="pas" type="password" matInput formControlName="password">
+          <mat-error id="pasReq" *ngIf="_password?.hasError('required') && _password?.touched">
             Это <strong>обязательное</strong> поле
           </mat-error>
-          <mat-error *ngIf="_password?.hasError('minlength')">
+          <mat-error id="pasLen" *ngIf="_password?.hasError('minlength')">
             Минимум 6 символов
           </mat-error>
         </mat-form-field>
       </div>
 
-      <button mat-raised-button [disabled]="form.invalid" (click)="check()">Login</button>
+      <button mat-raised-button [disabled]="form.invalid">Login</button>
     </form>
   </mat-card>
 </div>
