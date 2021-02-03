@@ -1,0 +1,29 @@
+<div class="parent">
+  <mat-card>
+    <form [formGroup]="form">
+      <div>
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="login">
+          <mat-error *ngIf="_login?.hasError('required')">
+            Это <strong>обязательное</strong> поле
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+          <mat-error *ngIf="_password?.hasError('required')">
+            Это <strong>обязательное</strong> поле
+          </mat-error>
+          <mat-error *ngIf="_password?.hasError('minlength')">
+            Минимум 6 символов
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button [disabled]="form.invalid" (click)="check()">Login</button>
+    </form>
+  </mat-card>
+</div>
